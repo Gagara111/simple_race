@@ -1,25 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import React, {useState} from "react";
 
-function App() {
+const App = () => {
+  const [position, setPosition] = useState(0);
+
+  const moveCar = () => {
+    setPosition(position + 10);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        <h1>ГОНКИ</h1>
+        <div style={{ position: 'relative', width: '500px', height: '100px', backgroundColor: 'grey' }}>
+          <div style={{ position: 'absolute', left: `${position}px`, width: '50px', height: '50px', backgroundColor: 'blue' }}></div>
+        </div>
+        <button onClick={moveCar}>Двигаться</button>
+      </div>
   );
-}
+};
 
 export default App;
