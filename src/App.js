@@ -1,262 +1,110 @@
-import React, { useState, useEffect, useRef } from 'react';
+// import React from 'react';
+// import CarGame from './CarGame';
+//
+// function App() {
+//   return (
+//       <div className="App">
+//         <CarGame />
+//       </div>
+//   );
+// }
+//
+// export default App;
+
+
+import React, { useState, useEffect } from 'react';
+import Car from './Car';
+import Obstacle from './Obstacle';
+import car1Img from './red_car-Photoroom.png';
+import car2Img from './yellow_car-Photoroom.png';
 import './App.css';
 
 const App = () => {
-    // Параметры игры
-    const trackRadius = 200; // Радиус круговой трассы
-    const carSize = 20; // Размер машин
-    const maxSpeed = 5; // Максимальная скорость
-    const friction = 0.9; // Коэффициент трения
-    const collisionSlowdown = 0.5; // Коэффициент замедления при столкновении с краем
-    const lapCount = 3; // Количество кругов
+    const [car1, setCar1] = useState({ x: 0, y: 0, angle: 0, speed: 0 });
+    const [car2, setCar2] = useState({ x: 100, y: 100, angle: 0, speed: 0 });
 
-    // Состояния игры
-    const [cars, setCars] = useState([
-        {
-            x: trackRadius,
-            y: 0,
-            angle: 0,
-            speed: 0,
-            color: 'red',
-            laps: 0,
-        },
-        {
-            x: trackRadius,
-            y: 0,
-            angle: 0,
-            speed: 0,
-            color: 'blue',
-            laps: 0,
-        },
-    ]);
-    const [winner, setWinner] = useState(null); // Имя победителя
-    const [gameOver, setGameOver] = useState(false); // Флаг окончания игры
-    const [isPaused, setIsPaused] = useState(false); // Флаг паузы
-    const [user, setUser] = useState(null); // Текущий пользователь
+    const obstacles = [
+        { x: 150, y: 150, width: 50, height: 50 },
+        { x: 300, y: 300, width: 50, height: 50 },
+    ];
 
-    // Референсы для Canvas
-    const canvasRef = useRef(null);
-    const ctxRef = useRef(null);
+    const moveCar = (setCar, accelerate) => {
+        setCar((prev) => {
+            const speed = Math.max(0, Math.min(5, prev.speed + (accelerate ? 0.5 : -0.2)));
+            const radians = (prev.angle * Math.PI) / 180;
+            const dx = Math.cos(radians) * speed;
+            const dy = Math.sin(radians) * speed;
 
-    // Обработка событий клавиатуры
+            return {
+                ...prev,
+                x: Math.max(0, Math.min(450, prev.x + dx)),
+                y: Math.max(0, Math.min(450, prev.y + dy)),
+                speed,
+            };
+        });
+    };
+
+    const rotateCar = (setCar, angle) => {
+        setCar((prev) => ({
+            ...prev,
+            angle: (prev.angle + angle) % 360,
+        }));
+    };
+
     const handleKeyDown = (event) => {
-        if (isPaused) return;
-
-        const carIndex = event.key === 'ArrowUp' || event.key === 'w' ? 0 : 1;
         switch (event.key) {
-            case 'ArrowUp': // Верхняя стрелка - вперед
             case 'w':
-                cars[carIndex].speed += 0.1;
-                if (cars[carIndex].speed > maxSpeed) cars[carIndex].speed = maxSpeed;
+                moveCar(setCar1, true);
                 break;
-            case 'ArrowDown': // Нижняя стрелка - назад
             case 's':
-                cars[carIndex].speed -= 0.1;
-                if (cars[carIndex].speed < -maxSpeed) cars[carIndex].speed = -maxSpeed;
+                moveCar(setCar1, false);
                 break;
-            case 'ArrowLeft': // Левая стрелка - влево
             case 'a':
-                cars[carIndex].angle -= 0.1;
+                rotateCar(setCar1, -10);
                 break;
-            case 'ArrowRight': // Правая стрелка - вправо
             case 'd':
-                cars[carIndex].angle += 0.1;
+                rotateCar(setCar1, 10);
+                break;
+            case 'ArrowUp':
+                moveCar(setCar2, true);
+                break;
+            case 'ArrowDown':
+                moveCar(setCar2, false);
+                break;
+            case 'ArrowLeft':
+                rotateCar(setCar2, -10);
+                break;
+            case 'ArrowRight':
+                rotateCar(setCar2, 10);
+                break;
+            default:
                 break;
         }
     };
 
-    // Обновление позиций машин
-    const updateCars = () => {
-        const newCars = [...cars];
-
-        newCars.forEach((car, index) => {
-            // Движение по траектории
-            car.x += Math.cos(car.angle) * car.speed;
-            car.y += Math.sin(car.angle) * car.speed;
-
-            // Замедление при столкновении с краями
-            if (
-                Math.sqrt(car.x * car.x + car.y * car.y) > trackRadius - carSize / 2
-            ) {
-                car.speed *= collisionSlowdown;
-            }
-
-            // Определение пересечения финишной линии
-            if (car.x > trackRadius && car.y > 0 && car.y < carSize) {
-                car.laps += 1;
-                if (car.laps >= lapCount) {
-                    setGameOver(true);
-                    setWinner(`Победитель: ${car.color} машина`);
-                }
-            }
-
-            // Применение трения
-            car.speed *= friction;
-        });
-
-        setCars(newCars);
-    };
-
-    // Проверка столкновений
-    const checkCollisions = () => {
-        const newCars = [...cars];
-
-        newCars.forEach((car1, index1) => {
-            newCars.forEach((car2, index2) => {
-                if (index1 !== index2) {
-                    const distance = Math.sqrt(
-                        Math.pow(car1.x - car2.x, 2) + Math.pow(car1.y - car2.y, 2)
-                    );
-                    if (distance < carSize) {
-                        // Изменение скорости и направления при столкновении
-                        car1.speed *= collisionSlowdown;
-                        car2.speed *= collisionSlowdown;
-                        car1.angle += Math.random() * 0.5 - 0.25;
-                        car2.angle += Math.random() * 0.5 - 0.25;
-                    }
-                }
-            });
-        });
-
-        setCars(newCars);
-    };
-
-    // Рендеринг игры на Canvas
-    const drawGame = () => {
-        const canvas = canvasRef.current;
-        const ctx = ctxRef.current;
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Рисование трассы
-        ctx.beginPath();
-        ctx.arc(canvas.width / 2, canvas.height / 2, trackRadius, 0, 2 * Math.PI);
-        ctx.strokeStyle = 'black';
-        ctx.lineWidth = 5;
-        ctx.stroke();
-
-        // Рисование машин
-        cars.forEach((car) => {
-            ctx.fillStyle = car.color;
-            ctx.beginPath();
-            ctx.rect(
-                car.x - carSize / 2,
-                car.y - carSize / 2,
-                carSize,
-                carSize
-            );
-            ctx.fill();
-        });
-
-        // Рисование финишной линии
-        ctx.beginPath();
-        ctx.moveTo(trackRadius, 0);
-        ctx.lineTo(trackRadius + 10, 0);
-        ctx.lineTo(trackRadius + 10, carSize);
-        ctx.lineTo(trackRadius, carSize);
-        ctx.strokeStyle = 'black';
-        ctx.stroke();
-
-        // Отображение сообщения о победителе
-        if (gameOver) {
-            ctx.fillStyle = 'black';
-            ctx.font = '20px Arial';
-            ctx.fillText(winner, canvas.width / 2 - 100, canvas.height / 2);
-        }
-    };
-
-    // Обновление игры
     useEffect(() => {
-        if (!gameOver && !isPaused) {
-            updateCars();
-            checkCollisions();
-            drawGame();
-        }
-
-        const animation = requestAnimationFrame(updateCars);
-        return () => cancelAnimationFrame(animation);
-    }, [cars, gameOver, isPaused]);
-
-    // Инициализация Canvas при рендеринге
-    useEffect(() => {
-        const canvas = canvasRef.current;
-        const ctx = canvas.getContext('2d');
-        ctxRef.current = ctx;
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
     }, []);
 
-    // Обработчик паузы
-    const handlePause = () => {
-        setIsPaused(!isPaused);
-    };
-
     return (
-        <div className="App">
+        <div className="game-container">
             <h1>Гонки</h1>
-            <canvas ref={canvasRef} width={500} height={500} />
-            <button onClick={handlePause}>
-                {isPaused ? 'Продолжить' : 'Пауза'}
-            </button>
-
-            {/*  Блок для регистрации пользователя */}
-            {!user && (
-                <div>
-                    <h2>Регистрация</h2>
-                    <input type="text" placeholder="Логин" />
-                    <input type="password" placeholder="Пароль" />
-                    <button>Зарегистрироваться</button>
-                </div>
-            )}
-
-            {/*  Блок для отображения информации о пользователе */}
-            {user && (
-                <div>
-                    <h2>Привет, {user.login}!</h2>
-                    <button>Выйти</button>
-                </div>
-            )}
+            <div className="track">
+                <Car x={car1.x} y={car1.y} angle={car1.angle} image={car1Img} />
+                <Car x={car2.x} y={car2.y} angle={car2.angle} image={car2Img} />
+                {obstacles.map((obs, index) => (
+                    <Obstacle key={index} {...obs} />
+                ))}
+            </div>
         </div>
     );
 };
 
 export default App;
 
+//
+// d
 
-
-// import logo from './logo.svg';
-// import './App.css';
-// import React, {useState} from "react";
 //
-// const App = () => {
-//   const [position, setPosition] = useState(0);
-//
-//   const moveCar = () => {
-//     setPosition(position + 10);
-//   };
-//
-//   return (
-//       <div>
-//           <h1>ГОНКИ</h1>
-//           <div style={{position: 'relative', width: '500px', height: '100px', backgroundColor: 'grey'}}>
-//               <div style={{
-//                   position: 'absolute',
-//                   left: `${position}px`,
-//                   width: '50px',
-//                   height: '50px',
-//                   backgroundColor: 'blue'
-//               }}></div>
-//           </div>
-//           <div style={{position: 'relative', width: '500px', height: '100px', backgroundColor: 'grey'}}>
-//               <div style={{
-//                   position: 'absolute',
-//                   left: `${position}px`,
-//                   width: '50px',
-//                   height: '50px',
-//                   backgroundColor: 'green'
-//               }}></div>
-//           </div>
-//           <button onClick={moveCar}>Двигаться</button>
-//       </div>
-//   );
-// };
-//
-// export default App;
+// dhfj
