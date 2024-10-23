@@ -1,0 +1,83 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0" version="24.8.2">
+  <diagram name="Страница — 1" id="8gGwUoWIRX5vgx9VEgOp">
+    <mxGraphModel dx="1783" dy="3327" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Z53o12VufNQYs4QD0LuQ-4" value="Финиш&lt;div&gt;определение победителей&lt;/div&gt;&lt;div&gt;фиксация результатов&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="390" y="-1220" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="arDiFbJuvy4ZhbAj9cv4-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Z53o12VufNQYs4QD0LuQ-5" target="Z53o12VufNQYs4QD0LuQ-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Z53o12VufNQYs4QD0LuQ-5" value="Количество кругов" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="385" y="-1360" width="210" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Z53o12VufNQYs4QD0LuQ-7" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="220" y="-2040" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="arDiFbJuvy4ZhbAj9cv4-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Z53o12VufNQYs4QD0LuQ-8" target="Z53o12VufNQYs4QD0LuQ-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Z53o12VufNQYs4QD0LuQ-8" value="Соударения&amp;nbsp;&lt;div&gt;- Изменения траектории&lt;/div&gt;&lt;div&gt;- Замедление при соприкосновении&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="380" y="-1490" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="arDiFbJuvy4ZhbAj9cv4-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Z53o12VufNQYs4QD0LuQ-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="490" y="-1600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z53o12VufNQYs4QD0LuQ-10" value="ТС&lt;div&gt;-движение&lt;/div&gt;&lt;div&gt;-повороты&lt;/div&gt;&lt;div&gt;-скорость&lt;/div&gt;&lt;div&gt;-остановка&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="390" y="-1760" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="arDiFbJuvy4ZhbAj9cv4-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Z53o12VufNQYs4QD0LuQ-11" target="Z53o12VufNQYs4QD0LuQ-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Z53o12VufNQYs4QD0LuQ-11" value="Трасса&amp;nbsp;&lt;div&gt;Круговая трасса&lt;/div&gt;&lt;div&gt;Полоса старта&lt;/div&gt;&lt;div&gt;Полоса финиша&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="390" y="-1620" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="arDiFbJuvy4ZhbAj9cv4-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Z53o12VufNQYs4QD0LuQ-14" target="Z53o12VufNQYs4QD0LuQ-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Z53o12VufNQYs4QD0LuQ-14" value="&lt;div style=&quot;&quot;&gt;&lt;pre style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace;&quot;&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Игра   &lt;/font&gt;&lt;/pre&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="390" y="-1910" width="200" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="Z53o12VufNQYs4QD0LuQ-18" value="игрок запускает игру" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="530" y="-1950" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="arDiFbJuvy4ZhbAj9cv4-2" value="Управление ТС" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="-1810" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="arDiFbJuvy4ZhbAj9cv4-4" value="Движение по трассе" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="-1660" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="arDiFbJuvy4ZhbAj9cv4-5" value="Соударения" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="-1530" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="arDiFbJuvy4ZhbAj9cv4-11" value="Количество кругов" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="554" y="-1400" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="arDiFbJuvy4ZhbAj9cv4-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="arDiFbJuvy4ZhbAj9cv4-15" target="Z53o12VufNQYs4QD0LuQ-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arDiFbJuvy4ZhbAj9cv4-15" value="&lt;div style=&quot;&quot;&gt;&lt;pre style=&quot;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;&lt;b style=&quot;&quot;&gt;&lt;font style=&quot;&quot; face=&quot;Times New Roman&quot;&gt;Регистрация/вход&lt;/font&gt;&lt;/b&gt;&lt;/span&gt;&lt;/pre&gt;&lt;pre style=&quot;&quot;&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;&lt;b style=&quot;&quot;&gt;&lt;font style=&quot;&quot; face=&quot;kFZz6svUgxL2AhobKIru&quot;&gt;логин/пароль&lt;/font&gt;&lt;/b&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="390" y="-2060" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="arDiFbJuvy4ZhbAj9cv4-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Z53o12VufNQYs4QD0LuQ-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="-2010" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arDiFbJuvy4ZhbAj9cv4-20" value="Регистрация пользователей" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="290" y="-2060" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="arDiFbJuvy4ZhbAj9cv4-21" value="Окончание&amp;nbsp;&lt;div&gt;игры&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="570" y="-1270" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="arDiFbJuvy4ZhbAj9cv4-22" value="&lt;font style=&quot;font-size: 23px;&quot;&gt;Диаграмма для командного проекта&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="-2270" width="620" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
