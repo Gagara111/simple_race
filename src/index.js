@@ -30,7 +30,7 @@ ReactDOM.render(
 );
 
 
-// kjdkjcskj
+// kjdkj
 
 
 // kjdkjcskj
