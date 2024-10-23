@@ -16,3 +16,4 @@ const Obstacle = ({ x, y, width, height }) => {
 };
 
 export default Obstacle;
+// dsfdksmfdksm
