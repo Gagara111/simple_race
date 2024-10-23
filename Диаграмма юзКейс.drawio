@@ -1,9 +1,47 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0" version="24.8.0">
   <diagram name="Страница — 1" id="8gGwUoWIRX5vgx9VEgOp">
-    <mxGraphModel>
+    <mxGraphModel dx="2253" dy="3129" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="Z53o12VufNQYs4QD0LuQ-3" value="" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="-120" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Z53o12VufNQYs4QD0LuQ-4" value="" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="-440" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Z53o12VufNQYs4QD0LuQ-5" value="" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="-620" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Z53o12VufNQYs4QD0LuQ-6" value="" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="-300" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Z53o12VufNQYs4QD0LuQ-7" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="-1340" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Z53o12VufNQYs4QD0LuQ-8" value="" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="-790" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Z53o12VufNQYs4QD0LuQ-10" value="" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="-1180" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Z53o12VufNQYs4QD0LuQ-11" value="" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="-840" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Z53o12VufNQYs4QD0LuQ-12" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="-60" y="-1810" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Z53o12VufNQYs4QD0LuQ-14" value="&lt;div style=&quot;background-color:#1e1f22;color:#bcbec4&quot;&gt;&lt;pre style=&quot;font-family:&#39;JetBrains Mono&#39;,monospace;font-size:9,8pt;&quot;&gt;Игра   &lt;/pre&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="-1350" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Z53o12VufNQYs4QD0LuQ-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.375;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="Z53o12VufNQYs4QD0LuQ-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="290" y="-1310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z53o12VufNQYs4QD0LuQ-18" value="игрок запускает игру" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="190" y="-1360" width="60" height="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
