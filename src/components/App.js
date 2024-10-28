@@ -39,6 +39,22 @@ const App = () => {
         }
     };
 
+    // Функция для удаления карт
+    const removeMap = () => {
+        if (gameCanvasRef.current) {
+            const mapName = prompt('Введите название карты:');
+            if (mapName) {
+                const mapData = gameCanvasRef.current.getMapData();
+                mapData.name = mapName;
+
+                const updatedMaps = [...savedMaps, mapData];
+                setSavedMaps(updatedMaps);
+                localStorage.removeItem('savedMaps', JSON.stringify(updatedMaps));
+                console.log('Карта удалена:', mapName);
+            }
+        }
+    };
+
     // Функция для загрузки карты
     const loadMap = (mapName) => {
         const mapToLoad = savedMaps.find((map) => map.name === mapName);
@@ -61,6 +77,8 @@ const App = () => {
                 setIsPaused={setIsPaused}
                 savedMaps={savedMaps}
                 saveMap={saveMap}
+                removeMap={removeMap}
+                //removedMaps={removedMaps}
                 loadMap={loadMap}
             />
             <GameCanvas

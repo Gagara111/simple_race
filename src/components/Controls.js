@@ -14,6 +14,7 @@ const Controls = ({
                       isPaused,
                       setIsPaused,
                       savedMaps,
+                      removeMap,
                       saveMap,
                       loadMap,
                   }) => {
@@ -51,6 +52,7 @@ const Controls = ({
 
             {/* Кнопки сохранения и загрузки карт */}
             <button onClick={saveMap}>Сохранить Карту</button>
+            <button onClick={removeMap}>Удалить Карту</button>
             <button onClick={() => setShowLoadMap(true)}>Загрузить Карту</button>
 
             {/* Интерфейс для выбора карты при загрузке */}
@@ -92,7 +94,7 @@ const Controls = ({
                             cursor: 'pointer',
                             margin: '5px',
                         }}
-                        onClick={() => setSelectedObstacleImage({ src: obstacle1ImgSrc })}
+                        onClick={() => setSelectedObstacleImage({src: obstacle1ImgSrc})}
                     />
                     <img
                         src={obstacle2ImgSrc}
@@ -108,7 +110,7 @@ const Controls = ({
                             cursor: 'pointer',
                             margin: '5px',
                         }}
-                        onClick={() => setSelectedObstacleImage({ src: obstacle2ImgSrc })}
+                        onClick={() => setSelectedObstacleImage({src: obstacle2ImgSrc})}
                     />
                 </div>
             )}

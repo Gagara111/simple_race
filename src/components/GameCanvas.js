@@ -204,9 +204,9 @@ const GameCanvas = forwardRef(
 
         const moveCar = (car, controls) => {
             let {x, y, angle} = car;
-            let speed = 0;
+            let speed = 2;
             const rotationSpeed = 5;
-            const moveSpeed = 3;
+            const moveSpeed = 5;
 
             if (activeKeys.current.has(controls.forward)) {
                 speed = moveSpeed;
